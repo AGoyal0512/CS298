@@ -1,0 +1,72 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warnings=FALSE)
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+```
+
+
+```{r}
+police_data <- read_csv("../../data/Police_Incident_Reports_Madison.csv")
+
+police_data=police_data %>% 
+    mutate(IncidentDate = ymd_hms(IncidentDate))
+
+police_data
+```
+
+```{r}
+incident_type=police_data %>% 
+  select(IncidentType) %>% 
+  group_by(IncidentType) %>% 
+  summarize(count=n()) %>% 
+  arrange(-count)
+incident_type=head(incident_type,10)
+incident_type
+
+ggplot(incident_type, aes(x=IncidentType,y=count))+
+  geom_col()+
+    theme(axis.text.x = element_text(angle = 90))
+```
+
+
+
+```{r}
+incident_location=police_data %>% 
+  select(Address) %>% 
+  group_by(Address) %>% 
+  summarize(count=n()) %>% 
+  arrange(-count)
+incident_location=head(incident_location,10)
+incident_location
+ggplot(incident_location, aes(x=Address,y=count))+
+  geom_col()+
+    theme(axis.text.x = element_text(angle = 90))
+```
+
+
+```{r}
+incident_releasedby=police_data %>% 
+  select(ReleasedBy) %>% 
+  group_by(ReleasedBy) %>% 
+  summarize(count=n()) %>% 
+  arrange(-count)
+incident_releasedby=head(incident_releasedby,10)
+incident_releasedby
+
+ggplot(incident_releasedby, aes(x=ReleasedBy,y=count))+
+  geom_col()+
+    theme(axis.text.x = element_text(angle = 90))
+```
+```{r}
+time=police_data %>% 
+  filter(IncidentType=="Robbery") %>% 
+  select(IncidentDate) %>% 
+  mutate(IncidentDate = ymd_hms(IncidentDate)) %>% 
+  
+```
+
