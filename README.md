@@ -1,4 +1,4 @@
-# Madison Poilice Incident Reports Analysis
+# Madison Police Incident Reports Analysis
 ## COMP SCI 298: Directed Study in Computer Sciences
 ### Agam Goyal, Harshita Narayanan, Kartik Munjal
 
