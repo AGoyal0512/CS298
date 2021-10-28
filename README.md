@@ -1,7 +1,11 @@
 # Madison Poilice Incident Reports Analysis
-## Agam Goyal, Harshita Narayanan, Kartik Munjal
-### COMP SCI 298: Directed Study in Computer Sciences
+## COMP SCI 298: Directed Study in Computer Sciences
+### Agam Goyal, Harshita Narayanan, Kartik Munjal
+
+
 
 > Data:
+
+
 
 > Current Goals:
